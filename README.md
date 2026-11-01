@@ -8,6 +8,10 @@
 > **Licencia:** MIT, conservando el aviso de copyright de la obra original.  
 > Este repositorio **no es oficial** ni está afiliado, patrocinado o avalado por Just Call Me Koko.
 
+[![Licencia MIT](https://img.shields.io/badge/Licencia-MIT-blue.svg)](LICENSE)
+[![Firmware V4](https://img.shields.io/badge/Firmware-ES%20V4-success.svg)](https://github.com/frangonzas/ESP32Marauder/releases/tag/es-v4.0.0)
+[![Reconstrucción verificable](https://github.com/frangonzas/ESP32Marauder/actions/workflows/publicar-firmware.yml/badge.svg)](https://github.com/frangonzas/ESP32Marauder/actions/workflows/publicar-firmware.yml)
+
 ## ¿Qué ofrece esta edición?
 
 Se ha adaptado la interfaz de usuario al español mediante modificaciones controladas de cadenas de texto de la imagen binaria oficial. La traducción se desarrolló en cuatro revisiones (V1, V2, V3 y V4), comprobadas sucesivamente en un equipo MaKing Lab con perfil **Marauder v6.1**. La V4 añade una pantalla de inicio identificada como **Marauder ES V4**, mantiene el logo original y presenta el crédito **Fran Gonzas**. El código ejecutable original no se modifica intencionadamente.
@@ -16,7 +20,13 @@ Se ha adaptado la interfaz de usuario al español mediante modificaciones contro
 
 ## Descarga
 
-La edición recomendada es **V4**, para **Marauder v6.1/v6.2**. Encontrarás los binarios en `firmware/` cuando finalice su proceso automático de publicación y, cuando esté disponible, en [Releases](../../releases). Consulta [INSTALACION.md](docs/INSTALACION.md) antes de flashear.
+La edición recomendada es **V4**, para **Marauder v6.1/v6.2**. La publicación **es-v4.0.0** ya está disponible:
+
+- **[Descargar firmware V4 (.bin)](https://github.com/frangonzas/ESP32Marauder/releases/download/es-v4.0.0/ESP32_MARAUDER_v1.20.0_ES_V4_FRAN_GONZAS.bin)**
+- **[Descargar paquete completo V1–V4 (.zip)](https://github.com/frangonzas/ESP32Marauder/releases/download/es-v4.0.0/ESP32_MARAUDER_ES_V1_V4_FRAN_GONZAS.zip)**
+- [Consultar todos los archivos y hashes del release](https://github.com/frangonzas/ESP32Marauder/releases/tag/es-v4.0.0)
+
+Los archivos también están en [firmware/](firmware/). Lee [INSTALACION.md](docs/INSTALACION.md) antes de flashear.
 
 | Imagen | SHA-256 |
 |---|---|
@@ -32,6 +42,8 @@ Se publica un procedimiento de **reconstrucción reproducible** que descarga la 
 - [Historial de las cuatro versiones](CHANGELOG.md)
 - [Integridad y reproducibilidad](docs/INTEGRIDAD.md)
 - [Seguridad, uso responsable y reporte de incidencias](SECURITY.md)
+- [Preguntas frecuentes](docs/PREGUNTAS_FRECUENTES.md)
+- [Cómo colaborar y comunicar incidencias](CONTRIBUTING.md)
 
 ## Alcance y compatibilidad
 

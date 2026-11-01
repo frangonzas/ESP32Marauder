@@ -1,0 +1,47 @@
+name: "Error de traducción o compatibilidad"
+description: "Notificar un texto incorrecto, un problema de interfaz o una incompatibilidad de la edición española."
+title: "[ES] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Edición comunitaria no oficial.** No incluyas credenciales, direcciones MAC privadas, capturas de tráfico ajeno ni copias completas de flash.
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: "Categoría"
+      options:
+        - "Traducción de menú o aviso"
+        - "Interfaz / pantalla / tipografía"
+        - "Actualización por microSD"
+        - "Compatibilidad de hardware"
+        - "Documentación"
+        - "Otro"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "Versión instalada"
+      placeholder: "Por ejemplo: ES V4 (v1.20.0)"
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: "Modelo de dispositivo / PCB"
+      placeholder: "Por ejemplo: MaKing Lab, perfil Marauder v6.1"
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: "Descripción y pasos para reproducir"
+      description: "Incluye ruta de menú, texto actual y texto español que propones, cuando corresponda."
+    validations:
+      required: true
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: "Evidencias opcionales"
+      description: "Solo imágenes y registros anonimizados. No adjuntes datos personales."
