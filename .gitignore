@@ -1,0 +1,13 @@
+# Archivos de configuración del editor y entornos locales
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.env
+*.log
+*.pcap
+*.pcapng
+*.csv
+# Nunca publicar copias completas de la memoria flash o datos privados
+*flash_backup*
+*full_flash_dump*

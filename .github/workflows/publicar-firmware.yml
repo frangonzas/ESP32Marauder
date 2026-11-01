@@ -1,0 +1,73 @@
+name: Reconstrucción verificable y publicación de firmware ES
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'patches/**'
+      - 'tools/reconstruir_firmwares.py'
+      - '.github/workflows/publicar-firmware.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-firmware-es
+  cancel-in-progress: false
+
+jobs:
+  verificar-y-publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Reconstruir V1-V4 desde el release oficial
+        run: python3 tools/reconstruir_firmwares.py --outdir firmware
+
+      - name: Comprobar los cuatro SHA-256
+        run: cd firmware && sha256sum -c SHA256SUMS.txt
+
+      - name: Publicar binarios verificables en firmware/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add firmware/
+          if git diff --cached --quiet; then
+            echo "Los binarios publicados ya coinciden con los hashes."
+          else
+            git commit -m "build: publicar binarios ES V1-V4 verificados [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Preparar paquete con licencia y hashes
+        run: |
+          zip -j ESP32_MARAUDER_ES_V1_V4_FRAN_GONZAS.zip firmware/*.bin firmware/SHA256SUMS.txt LICENSE docs/ORIGEN_Y_LICENCIA.md docs/INSTALACION.md
+
+      - name: Publicar release comunitario V4
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="es-v4.0.0"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" firmware/*.bin firmware/SHA256SUMS.txt ESP32_MARAUDER_ES_V1_V4_FRAN_GONZAS.zip LICENSE --clobber
+          else
+            gh release create "$TAG" firmware/*.bin firmware/SHA256SUMS.txt ESP32_MARAUDER_ES_V1_V4_FRAN_GONZAS.zip LICENSE --target "$(git rev-parse HEAD)" --title "ESP32 Marauder v1.20.0 ES V4 — Fran Gonzas (no oficial)" --notes-file docs/NOTAS_RELEASE.md
+          fi
+
+      - name: Subir paquete como artefacto de compilación
+        uses: actions/upload-artifact@v4
+        with:
+          name: ESP32-Marauder-v1.20.0-ES-V1-V4
+          path: |
+            ESP32_MARAUDER_ES_V1_V4_FRAN_GONZAS.zip
+            firmware/SHA256SUMS.txt
