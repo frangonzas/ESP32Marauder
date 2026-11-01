@@ -12,6 +12,16 @@
 [![Firmware V4](https://img.shields.io/badge/Firmware-ES%20V4-success.svg)](https://github.com/frangonzas/ESP32Marauder/releases/tag/es-v4.0.0)
 [![Reconstrucción verificable](https://github.com/frangonzas/ESP32Marauder/actions/workflows/publicar-firmware.yml/badge.svg)](https://github.com/frangonzas/ESP32Marauder/actions/workflows/publicar-firmware.yml)
 
+## Galería del firmware en funcionamiento
+
+Fotografías reales del **Marauder ES V4 — Fran Gonzas** ejecutándose en un dispositivo MaKing Lab. Las imágenes están optimizadas para GitHub y conservan el aspecto de la interfaz original.
+
+| Arranque de la V4 | Menú principal en español | Menú WiFi |
+|:---:|:---:|:---:|
+| [![Marauder ES V4 y Fran Gonzas](docs/images/arranque_v4.webp)](docs/images/arranque_v4.webp) | [![Menú principal en español](docs/images/menu_principal_v4.webp)](docs/images/menu_principal_v4.webp) | [![Menú WiFi en español](docs/images/menu_wifi.webp)](docs/images/menu_wifi.webp) |
+
+**[Ver las seis fotografías y sus descripciones](docs/GALERIA.md)** · Incluye capturas WiFi, menú Equipo y monitor de paquetes con identificadores anonimizados.
+
 ## ¿Qué ofrece esta edición?
 
 Se ha adaptado la interfaz de usuario al español mediante modificaciones controladas de cadenas de texto de la imagen binaria oficial. La traducción se desarrolló en cuatro revisiones (V1, V2, V3 y V4), comprobadas sucesivamente en un equipo MaKing Lab con perfil **Marauder v6.1**. La V4 añade una pantalla de inicio identificada como **Marauder ES V4**, mantiene el logo original y presenta el crédito **Fran Gonzas**. El código ejecutable original no se modifica intencionadamente.
@@ -37,6 +47,7 @@ Se publica un procedimiento de **reconstrucción reproducible** que descarga la 
 
 ## Documentación
 
+- [Galería fotográfica de la V4 en funcionamiento](docs/GALERIA.md)
 - [Instalación, requisitos y recuperación](docs/INSTALACION.md)
 - [Origen del software, créditos y términos de redistribución](docs/ORIGEN_Y_LICENCIA.md)
 - [Historial de las cuatro versiones](CHANGELOG.md)
